@@ -1,0 +1,20 @@
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.csprojResolveAssemblyReference.cache
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\ResourceDictionaries\ResourceLibrary.baml
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary_MarkupCompile.cache
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.g.resources
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\thinknet.controllibrary.Properties.Resources.resources
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.csproj.GenerateResource.Cache
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\bin\Debug\Thinknet.ControlLibrary.dll
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\bin\Debug\Thinknet.ControlLibrary.pdb
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.dll
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.pdb
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\bin\Debug\Thinknet.ControlLibrary.dll
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\bin\Debug\Thinknet.ControlLibrary.pdb
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.csprojResolveAssemblyReference.cache
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\ResourceDictionaries\ResourceLibrary.baml
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary_MarkupCompile.cache
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.g.resources
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.Properties.Resources.resources
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.csproj.GenerateResource.Cache
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.dll
+D:\CSProjects\ProjectsTB\WpfLibrary\Thinknet.ControlLibrary\obj\Debug\Thinknet.ControlLibrary.pdb

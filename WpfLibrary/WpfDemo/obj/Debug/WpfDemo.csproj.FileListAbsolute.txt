@@ -1,0 +1,31 @@
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\bin\Debug\WpfDemo.exe.config
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\bin\Debug\WpfDemo.exe
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\bin\Debug\WpfDemo.pdb
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.csprojResolveAssemblyReference.cache
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\MainWindow.baml
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\MainWindow.g.cs
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\App.g.cs
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\WpfDemo_MarkupCompile.cache
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.g.resources
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.Properties.Resources.resources
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.csproj.GenerateResource.Cache
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.exe
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.pdb
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\bin\Debug\Thinknet.ControlLibrary.dll
+d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfDemo\bin\Debug\Thinknet.ControlLibrary.pdb
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\bin\Debug\WpfDemo.exe.config
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.exe
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.pdb
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\bin\Debug\WpfDemo.exe
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\bin\Debug\WpfDemo.pdb
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\bin\Debug\Thinknet.ControlLibrary.dll
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\bin\Debug\Thinknet.ControlLibrary.pdb
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.csprojResolveAssemblyReference.cache
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\MainWindow.baml
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\App.baml
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\MainWindow.g.cs
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\App.g.cs
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\WpfDemo_MarkupCompile.cache
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.g.resources
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.Properties.Resources.resources
+D:\CSProjects\ProjectsTB\WpfLibrary\WpfDemo\obj\Debug\WpfDemo.csproj.GenerateResource.Cache
