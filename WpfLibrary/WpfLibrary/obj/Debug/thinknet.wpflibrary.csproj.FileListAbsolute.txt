@@ -1,5 +1,0 @@
-d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfLibrary\bin\Debug\WpfLibrary.dll
-d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfLibrary\bin\Debug\WpfLibrary.pdb
-d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfLibrary\obj\Debug\thinknet.wpflibrary.csprojResolveAssemblyReference.cache
-d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfLibrary\obj\Debug\WpfLibrary.dll
-d:\users\tb\documents\visual studio 2013\Projects\WpfLibrary\WpfLibrary\obj\Debug\WpfLibrary.pdb
