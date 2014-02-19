@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("WpfDemo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Metrohm AG")]
+[assembly: AssemblyCompany("Thinknet Switzerland")]
 [assembly: AssemblyProduct("WpfDemo")]
-[assembly: AssemblyCopyright("Copyright © Metrohm AG 2014")]
+[assembly: AssemblyCopyright("Copyright © Thinknet Switzerland 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

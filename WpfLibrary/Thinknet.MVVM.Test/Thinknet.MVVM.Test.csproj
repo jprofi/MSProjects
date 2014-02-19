@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D49E20D8-A707-409A-ACA4-AC81B3E730A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Thinknet.MVVM.Test</RootNamespace>
+    <AssemblyName>Thinknet.MVVM.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\libs\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks">
+      <HintPath>..\libs\NUnit\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\libs\NUnit\pnunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\RelayCommandTest.cs" />
+    <Compile Include="Helper\TestHelperClasses\CommonTestClass.cs" />
+    <Compile Include="Helper\TestHelperClasses\InternalTestClass.cs" />
+    <Compile Include="Helper\TestHelperClasses\InternalTestClassGeneric.cs" />
+    <Compile Include="Helper\TestHelperClasses\PublicTestClass.cs" />
+    <Compile Include="Helper\TestHelperClasses\PublicTestClassGeneric.cs" />
+    <Compile Include="Helper\TestHelperClasses\TestCase.cs" />
+    <Compile Include="Helper\WeakActionGenericNestedTest.cs" />
+    <Compile Include="Helper\WeakActionNestedTest.cs" />
+    <Compile Include="Helper\WeakActionTest.cs" />
+    <Compile Include="Helper\WeakFuncGenericNestedTest.cs" />
+    <Compile Include="Helper\WeakFuncGenericTest.cs" />
+    <Compile Include="Helper\WeakFuncNestedTest.cs" />
+    <Compile Include="Helper\WeakFuncTest.cs" />
+    <Compile Include="Messaging\GarbageCollectionTest.cs" />
+    <Compile Include="Messaging\GenericMessage.cs" />
+    <Compile Include="Messaging\ITestMessage.cs" />
+    <Compile Include="Messaging\MessengerBroadcastToAllTest.cs" />
+    <Compile Include="Messaging\MessengerCreationDeletionTest.cs" />
+    <Compile Include="Messaging\MessengerMultipleInstancesTest.cs" />
+    <Compile Include="Messaging\MessengerRegisterUnregisterTest.cs" />
+    <Compile Include="Messaging\MessengerRegisterWhileSendingTest.cs" />
+    <Compile Include="Messaging\MessengerSendToAllTest.cs" />
+    <Compile Include="Messaging\MessengerSendToTypeTest.cs" />
+    <Compile Include="Messaging\MessengerSendWithTokenTest.cs" />
+    <Compile Include="Messaging\MessengerTestConstrainingMessages.cs" />
+    <Compile Include="Messaging\NotificationMessage.cs" />
+    <Compile Include="Messaging\TestMessageBase.cs" />
+    <Compile Include="Messaging\TestMessageImpl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\DataGridViewModelTest.cs" />
+    <Compile Include="ViewModel\TestHelper\TestDataGridViewModel.cs" />
+    <Compile Include="ViewModel\TestHelper\TestDataViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Thinknet.MVVM\Thinknet.MVVM.csproj">
+      <Project>{6C359D2E-2A8C-4D78-A8BE-3BE92BBCE3DF}</Project>
+      <Name>Thinknet.MVVM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

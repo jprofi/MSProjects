@@ -83,6 +83,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModel\DataGridColumnDescriptor.cs" />
+    <Compile Include="ViewModel\DataGridColumnType.cs" />
+    <Compile Include="ViewModel\DataGridRowViewModel.cs" />
+    <Compile Include="ViewModel\DataGridViewModel{T}.cs" />
     <Compile Include="ViewModel\FormattingViewModel.cs" />
     <Compile Include="ViewModel\TreeNodeViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
