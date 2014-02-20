@@ -40,6 +40,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Windows\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,12 +57,33 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\DesktopTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceDictionaries\Brushes\DefaultColorTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\CustomControlStyles\DesktopTooltipStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\NamedStyles\BindingRichTextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceDictionaries\ResourceLibrary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\ToolTipBehavior.cs" />
+    <Compile Include="Controls\BindingRichTextBox.cs" />
+    <Compile Include="Controls\DesktopTooltip.xaml.cs">
+      <DependentUpon>DesktopTooltip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -72,6 +97,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Utilities\ITextFormatter.cs" />
+    <Compile Include="Utilities\RtfFormatter.cs" />
+    <Compile Include="Utilities\XHtmlFormatter.cs" />
+    <Compile Include="Utilities\XHtmlToXamlParser\CssProperties.cs" />
+    <Compile Include="Utilities\XHtmlToXamlParser\CssStylesheet.cs" />
+    <Compile Include="Utilities\XHtmlToXamlParser\HtmlCssParser.cs" />
+    <Compile Include="Utilities\XHtmlToXamlParser\HtmlSchema.cs" />
+    <Compile Include="Utilities\XHtmlToXamlParser\HtmlToXamlConverter.cs" />
+    <Compile Include="Utilities\XHtmlToXamlParser\XamlProperties.cs" />
+    <Compile Include="Utilities\XHtmlToXamlParser\XmlHelper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,15 +118,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Behaviors\" />
-    <Folder Include="Controls\" />
     <Folder Include="Converters\" />
     <Folder Include="Images\" />
     <Folder Include="ResourceDictionaries\BaseControlStyles\" />
-    <Folder Include="ResourceDictionaries\Brushes\" />
-    <Folder Include="ResourceDictionaries\CustomControlStyles\" />
-    <Folder Include="ResourceDictionaries\NamedStyles\" />
-    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Thinknet.MVVM\Thinknet.MVVM.csproj">
+      <Project>{6C359D2E-2A8C-4D78-A8BE-3BE92BBCE3DF}</Project>
+      <Name>Thinknet.MVVM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

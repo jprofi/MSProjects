@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Style for the Richtextbox used in the Popup for the Tooltip.-->
+    <Style x:Key="RichTextBoxTooltipStyle" TargetType="RichTextBox">
+        <Setter Property="IsReadOnly" Value="True"></Setter>
+        <Setter Property="Focusable" Value="True"></Setter>
+        <Setter Property="IsDocumentEnabled" Value="True"></Setter>
+        <Setter Property="MinWidth" Value="300"></Setter>
+    </Style>
+</ResourceDictionary>

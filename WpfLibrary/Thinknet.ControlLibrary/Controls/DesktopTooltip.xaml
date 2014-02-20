@@ -1,0 +1,33 @@
+<Popup x:Class="Thinknet.ControlLibrary.Controls.DesktopToolTip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:Thinknet.ControlLibrary.Controls"
+             xmlns:utilities="clr-namespace:Thinknet.ControlLibrary.Utilities"
+
+             mc:Ignorable="d" 
+       d:DesignHeight="200" d:DesignWidth="300">
+    <Popup.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/ResourceLibrary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <utilities:XHtmlFormatter x:Key="XHtmlFormatter" />
+            <Style TargetType="{x:Type Paragraph}">
+                <Setter Property="Margin" Value="2"/>
+            </Style>
+        </ResourceDictionary>        
+    </Popup.Resources>    
+    <StackPanel>
+        <Border BorderBrush="{StaticResource ResourceKey=Blue02}" BorderThickness="1" Background="White">
+            <controls:BindingRichTextBox
+                                    x:Name="RichtextBoxForTooltip"
+                                    HyperLinkCommand="{Binding HyperLinkCommand}"
+                                    TextFormatter="{StaticResource XHtmlFormatter}"
+                                    Style="{StaticResource ResourceKey=RichTextBoxTooltipStyle}"
+                                    >
+            </controls:BindingRichTextBox>
+        </Border>
+    </StackPanel>
+</Popup>

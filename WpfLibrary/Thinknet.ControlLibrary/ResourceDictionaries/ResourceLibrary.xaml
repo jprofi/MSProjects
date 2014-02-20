@@ -2,6 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         
+        <!--Colors-->
+        <ResourceDictionary Source="Brushes/DefaultColorTheme.xaml"></ResourceDictionary>
+        
+        <!--Named styles-->
+        <ResourceDictionary Source="NamedStyles/BindingRichTextBoxStyle.xaml"></ResourceDictionary>   
+        
+        <!--Custom control styles-->
+        <ResourceDictionary Source="CustomControlStyles/DesktopTooltipStyle.xaml"></ResourceDictionary>   
     </ResourceDictionary.MergedDictionaries>
     
 </ResourceDictionary>
