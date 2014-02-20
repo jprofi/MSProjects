@@ -20,7 +20,7 @@
         </ResourceDictionary>        
     </Popup.Resources>    
     <StackPanel>
-        <Border BorderBrush="{StaticResource ResourceKey=Blue02}" BorderThickness="1" Background="White">
+        <Border BorderBrush="{StaticResource ResourceKey=GradientBorder}" BorderThickness="2" Background="White">
             <controls:BindingRichTextBox
                                     x:Name="RichtextBoxForTooltip"
                                     HyperLinkCommand="{Binding HyperLinkCommand}"
