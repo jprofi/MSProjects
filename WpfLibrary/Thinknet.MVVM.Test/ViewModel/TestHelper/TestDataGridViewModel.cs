@@ -11,9 +11,9 @@
     {
         public TestDataGridViewModel()
         {
-            ColumnsDescriptions.Add(new DataGridColumnDescriptor("Id", "Index", DataGridColumnType.Text, false));
-            ColumnsDescriptions.Add(new DataGridColumnDescriptor("Name", "Name", DataGridColumnType.Text, false));
-            ColumnsDescriptions.Add(new DataGridColumnDescriptor("Timestamp", "Timestamp", DataGridColumnType.Text, false));
+            AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<TestDataViewModel>("Id", model => model.Index, DataGridColumnType.Text, DataGridColumnAlignment.Left, false, false, false));
+            AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance("Name", "Name", DataGridColumnType.Text, DataGridColumnAlignment.Left, false, false, false));
+            AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance("Timestamp", "Timestamp", DataGridColumnType.Text, DataGridColumnAlignment.Left, false, false, false));
 
             Data.Add(new TestDataViewModel("0", "Thomas"));
             

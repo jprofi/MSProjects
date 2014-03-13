@@ -58,6 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataGrid\PersonViewModel.cs" />
+    <Compile Include="DataGrid\TestDataGridViewModel.cs" />
     <Compile Include="Tooltip\TooltipViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -34,7 +34,7 @@
         /// <summary>
         /// Gets the description for the single columns of a data grid.
         /// </summary>
-        public ObservableCollection<DataGridColumnDescriptor> ColumnsDescriptions
+        public IEnumerable<DataGridColumnDescriptor> ColumnsDescriptions
         {
             get { return _columnsDescriptions; }
         }
@@ -67,7 +67,7 @@
         /// Implementor is responsible for removing the desired items and modifying the collection of data after deletion.<see cref="Data"/>
         /// </summary>
         public abstract ICommand DeleteRowsCommand { get; }
-        
+
         /// <summary>
         /// Gets or sets a value indicating whether a sample has been added, removed, moved or modified.
         /// Delegates the call to it's data collection. Sets the value to false, also propagates this information to it's children.
@@ -84,7 +84,7 @@
                 // Reset modified state for all children.
                 if (value == false)
                 {
-                    Data.ToList().ForEach(obj => obj.IsModified = false);   
+                    Data.ToList().ForEach(obj => obj.IsModified = false);
                 }
 
                 _isModified = value;
@@ -111,7 +111,7 @@
         public IEnumerable<int> SelectedRowIndexes()
         {
             List<int> selectedRowIndexes = new List<int>();
-            for (int rowIdx = 0; rowIdx < _data.Count; rowIdx++ )
+            for (int rowIdx = 0; rowIdx < _data.Count; rowIdx++)
             {
                 if (Data[rowIdx].IsSelected)
                 {
@@ -123,22 +123,39 @@
         }
 
         /// <summary>
+        /// Adds a column description.
+        /// </summary>
+        /// <param name="columnDescription">The column description</param>
+        public void AddColumnDescription(DataGridColumnDescriptor columnDescription)
+        {
+            _columnsDescriptions.Add(columnDescription);
+        }
+
+        /// <summary>
         /// Update the selection states of the single rows and the list with the indexes of the selected rows.
         /// </summary>
         /// <param name="selectedItems">The selected rows.</param>
         protected void SelectRows(IList selectedItems)
         {
+            // todo tb: Optimize when a lot of items ares selcted, problem of cartesian product.
             if (selectedItems != null)
             {
                 // Check casting for the case of newitemplaceholder and copy for concurrent modification
-                IEnumerable<T> selectedRowsOfT = selectedItems.OfType<T>().ToList();
+                List<T> selectedRowsOfT = selectedItems.OfType<T>().ToList();
 
                 foreach (T dataRow in Data)
                 {
                     dataRow.SuspendSelectionPropertyChanged = true;
-                    dataRow.IsSelected = selectedRowsOfT.Any(selectedRow => dataRow == selectedRow);
+                    dataRow.IsSelected = false;
                     dataRow.SuspendSelectionPropertyChanged = false;
                 }
+
+                selectedRowsOfT.ForEach(obj =>
+                {
+                    obj.SuspendSelectionPropertyChanged = true;
+                    obj.IsSelected = true;
+                    obj.SuspendSelectionPropertyChanged = false;
+                });
             }
         }
 

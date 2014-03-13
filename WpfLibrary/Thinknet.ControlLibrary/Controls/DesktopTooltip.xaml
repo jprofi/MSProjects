@@ -10,9 +10,6 @@
        d:DesignHeight="200" d:DesignWidth="300">
     <Popup.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../ResourceDictionaries/ResourceLibrary.xaml" />
-            </ResourceDictionary.MergedDictionaries>
             <utilities:XHtmlFormatter x:Key="XHtmlFormatter" />
             <Style TargetType="{x:Type Paragraph}">
                 <Setter Property="Margin" Value="2"/>

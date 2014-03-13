@@ -9,6 +9,7 @@
     using System.Windows.Input;
     using System.Windows.Threading;
 
+    using Thinknet.MVVM.Helper;
     using Thinknet.MVVM.Messaging;
 
     /// <summary>
@@ -126,9 +127,7 @@
         /// </returns>
         public static string GetPropertyName<T>(Expression<Func<T>> property)
         {
-            MemberExpression expression = (MemberExpression)property.Body;
-            string propertyName = expression.Member.Name;
-            return propertyName;
+            return ReflectionHelper.GetPropertyName(property);
         }
 
         /// <summary>

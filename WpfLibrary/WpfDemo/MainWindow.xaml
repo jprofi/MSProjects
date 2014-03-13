@@ -5,9 +5,13 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:wpfDemo="clr-namespace:WpfDemo"
         xmlns:tooltip="clr-namespace:WpfDemo.Tooltip"
+        xmlns:controls="clr-namespace:Thinknet.ControlLibrary.Controls;assembly=Thinknet.ControlLibrary"
+        xmlns:dataGrid="clr-namespace:WpfDemo.DataGrid"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
+
         <tooltip:TooltipViewModel x:Key="TooltipViewModel" />
+        <dataGrid:TestDataGridViewModel x:Key="TestDataGridViewModel" />
     </Window.Resources>
     <Grid DataContext="{StaticResource TooltipViewModel}">
         <TabControl>
@@ -24,7 +28,15 @@
                         </i:Interaction.Behaviors>                        
                     </TextBox>
                 </StackPanel>
-
+            </TabItem>
+            <TabItem Header="Grid">
+                <Grid>
+                    <controls:StandardDataGrid DataContext="{StaticResource TestDataGridViewModel}" 
+                                               CellRightAlignStyle="{StaticResource DataGridCellRightAlignStyle}"
+                                               CellCenterAlignStyle="{StaticResource DataGridCellCenterAlignStyle}">
+                        
+                    </controls:StandardDataGrid>
+                </Grid>
             </TabItem>
         </TabControl>
 

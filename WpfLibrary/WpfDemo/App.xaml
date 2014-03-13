@@ -5,6 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary  Source="pack://application:,,,/Thinknet.ControlLibrary;component/ResourceDictionaries/Brushes/DefaultColorTheme.xaml"></ResourceDictionary>
                 <ResourceDictionary  Source="pack://application:,,,/Thinknet.ControlLibrary;component/ResourceDictionaries/ResourceLibrary.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <!--Workaround for ResourceDictionary loading (WPF Bug)-->

@@ -60,6 +60,10 @@
     <Compile Include="Helper\IExecuteWithObject.cs" />
     <Compile Include="Helper\IExecuteWithObjectAndResult.cs" />
     <Compile Include="Helper\ObservableCollectionChangedHandler.cs" />
+    <Compile Include="Helper\Reflect.cs" />
+    <Compile Include="Helper\Reflect.generated.cs" />
+    <Compile Include="Helper\ReflectionHelper.cs" />
+    <Compile Include="Helper\Reflect{TTarget}.cs" />
     <Compile Include="Helper\WeakAction.cs" />
     <Compile Include="Helper\WeakAction{T}.cs" />
     <Compile Include="Helper\WeakFunc{T,TResult}.cs" />
@@ -83,6 +87,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModel\DataGridColumnAlignment.cs" />
     <Compile Include="ViewModel\DataGridColumnDescriptor.cs" />
     <Compile Include="ViewModel\DataGridColumnType.cs" />
     <Compile Include="ViewModel\DataGridRowViewModel.cs" />

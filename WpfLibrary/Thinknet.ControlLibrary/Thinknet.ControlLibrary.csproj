@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\StandardDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ResourceDictionaries\Brushes\DefaultColorTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -69,9 +73,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceDictionaries\Fonts\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ResourceDictionaries\NamedStyles\BindingRichTextBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\NamedStyles\ThinknetDataGrids.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ResourceDictionaries\ResourceLibrary.xaml">
       <SubType>Designer</SubType>
@@ -79,10 +91,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\DataGridColumnsBehavior.cs" />
+    <Compile Include="Behaviors\DataGridRowReadOnlyBehavior.cs" />
     <Compile Include="Behaviors\ToolTipBehavior.cs" />
+    <Compile Include="Command\EventToCommand.cs" />
     <Compile Include="Controls\BindingRichTextBox.cs" />
     <Compile Include="Controls\DesktopTooltip.xaml.cs">
       <DependentUpon>DesktopTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StandardDataGrid.xaml.cs">
+      <DependentUpon>StandardDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -99,6 +117,7 @@
     </Compile>
     <Compile Include="Utilities\ITextFormatter.cs" />
     <Compile Include="Utilities\RtfFormatter.cs" />
+    <Compile Include="Utilities\WpfHelper.cs" />
     <Compile Include="Utilities\XHtmlFormatter.cs" />
     <Compile Include="Utilities\XHtmlToXamlParser\CssProperties.cs" />
     <Compile Include="Utilities\XHtmlToXamlParser\CssStylesheet.cs" />

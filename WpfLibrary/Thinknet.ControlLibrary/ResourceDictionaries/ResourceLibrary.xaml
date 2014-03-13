@@ -1,15 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        
         <!--Colors-->
         <ResourceDictionary Source="Brushes/DefaultColorTheme.xaml"></ResourceDictionary>
         
+        <!--Fonts-->
+        <ResourceDictionary Source="Fonts/Fonts.xaml"></ResourceDictionary>
+     
         <!--Named styles-->
         <ResourceDictionary Source="NamedStyles/BindingRichTextBoxStyle.xaml"></ResourceDictionary>   
+        <ResourceDictionary Source="NamedStyles/ThinknetDataGrids.xaml"></ResourceDictionary>   
         
         <!--Custom control styles-->
-        <ResourceDictionary Source="CustomControlStyles/DesktopTooltipStyle.xaml"></ResourceDictionary>   
+        <ResourceDictionary Source="CustomControlStyles/DesktopTooltipStyle.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
-    
 </ResourceDictionary>

@@ -5,13 +5,29 @@
     <Color x:Key="CBlue02">#FF0191C8</Color>
     <Color x:Key="CBlue03">#FF74C2E1</Color>
 
-    <Color x:Key="CGray01">#FF8C8984</Color>
+    <!--<Color x:Key="CGray01">#FF8C8984</Color>-->
+
+    <Color x:Key="CGray01">#FFF7F7F7</Color>
+    <Color x:Key="CGray02">#FFF0F0F0</Color>
+    <Color x:Key="CGray03">#FFC9C9C9</Color>
+    <Color x:Key="CGray04">#FFD6D6D6</Color>
+    <Color x:Key="CGray05">#FF7F7F7F</Color>
     
+    <Color x:Key="CWhite01">#FFFFFFFF</Color>
+    <Color x:Key="CBlack01">#FF000000</Color>
+
     <SolidColorBrush x:Key="Blue01" Color="{StaticResource CBlue01}" />
     <SolidColorBrush x:Key="Blue02" Color="{StaticResource CBlue02}" />
     <SolidColorBrush x:Key="Blue03" Color="{StaticResource CBlue03}" />
     
     <SolidColorBrush x:Key="Gray01" Color="{StaticResource CGray01}" />
+    <SolidColorBrush x:Key="Gray02" Color="{StaticResource CGray02}" />
+    <SolidColorBrush x:Key="Gray03" Color="{StaticResource CGray03}" />
+    <SolidColorBrush x:Key="Gray04" Color="{StaticResource CGray04}" />
+    <SolidColorBrush x:Key="Gray05" Color="{StaticResource CGray05}" />
+    
+    <SolidColorBrush x:Key="White01" Color="{StaticResource CWhite01}" />
+    <SolidColorBrush x:Key="Black01" Color="{StaticResource CBlack01}" />
 
     <LinearGradientBrush x:Key="GradientBorder" StartPoint="0,1" EndPoint="1,1">
         <GradientStop Color="{StaticResource CBlue03}" />
