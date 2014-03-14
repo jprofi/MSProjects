@@ -19,7 +19,6 @@
                 RowHeaderStyle="{StaticResource ResourceKey=DataGridRowHeaderStyle}"
                 Style = "{StaticResource ResourceKey=DataGridStyle}" 
                 behaviors:DataGridColumnsBehavior.BindableColumns="{Binding ColumnsDescriptions}">
-                
         <i:Interaction.Behaviors>
             <behaviors:DataGridRowReadOnlyBehavior/>
         </i:Interaction.Behaviors>

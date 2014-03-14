@@ -24,10 +24,5 @@
            
             Data.Add(new TestDataViewModel("2", "Reto"));
         }
-
-        public override ICommand DeleteRowsCommand
-        {
-            get { throw new System.NotImplementedException(); }
-        }
     }
 }

@@ -16,6 +16,7 @@
     public abstract class DataGridViewModel<T> : ViewModel where T : DataGridRowViewModel
     {
         private readonly RelayCommand<IList> _selectionChangedCommand;
+        private readonly RelayCommand _deleteRowsCommand;
         private readonly ObservableCollection<DataGridColumnDescriptor> _columnsDescriptions;
         private ObservableCollection<T> _data;
         private bool _isModified;
@@ -27,6 +28,8 @@
         {
             // Generic list can't be used, because selection can contains other types than view model, e.g. newly created item.
             _selectionChangedCommand = new RelayCommand<IList>(items => SelectRows(items));
+            _deleteRowsCommand = new RelayCommand(OnDeleteRows);
+
             _columnsDescriptions = new ObservableCollection<DataGridColumnDescriptor>();
             Data = new ObservableCollection<T>();
         }
@@ -66,7 +69,10 @@
         /// Gets the command for deletion operation. 
         /// Implementor is responsible for removing the desired items and modifying the collection of data after deletion.<see cref="Data"/>
         /// </summary>
-        public abstract ICommand DeleteRowsCommand { get; }
+        public ICommand DeleteRowsCommand
+        {
+            get { return _deleteRowsCommand; }
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether a sample has been added, removed, moved or modified.
@@ -157,6 +163,10 @@
                     obj.SuspendSelectionPropertyChanged = false;
                 });
             }
+        }
+
+        protected virtual void OnDeleteRows()
+        {
         }
 
         private void RegisterDataOnCollectionChangedHandler()

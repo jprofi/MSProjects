@@ -31,11 +31,12 @@
             </TabItem>
             <TabItem Header="Grid">
                 <Grid>
-                    <controls:StandardDataGrid DataContext="{StaticResource TestDataGridViewModel}" 
+                    <controls:TDataGrid DataContext="{StaticResource TestDataGridViewModel}"
+                                               CanUserDeleteRows="True"
                                                CellRightAlignStyle="{StaticResource DataGridCellRightAlignStyle}"
                                                CellCenterAlignStyle="{StaticResource DataGridCellCenterAlignStyle}">
                         
-                    </controls:StandardDataGrid>
+                    </controls:TDataGrid>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -1,7 +1,11 @@
 ﻿namespace WpfDemo.DataGrid
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Windows.Input;
 
+    using Thinknet.MVVM.Command;
     using Thinknet.MVVM.ViewModel;
 
     /// <summary>
@@ -16,6 +20,8 @@
         /// </summary>
         public TestDataGridViewModel()
         {
+            _deleteRowsCommand = new RelayCommand(OnDeleteRows);
+
             AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<PersonViewModel>("LastName", model => model.LastName, DataGridColumnType.Text, DataGridColumnAlignment.Left, true, false, true));
             AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<PersonViewModel>("FirstName", model => model.FirstName, DataGridColumnType.Text, DataGridColumnAlignment.Center, true, false, true));
             AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<PersonViewModel>("Age", model => model.Age, DataGridColumnType.Text, DataGridColumnAlignment.Right, true, false, true));
@@ -26,9 +32,10 @@
         }
 
         /// <inheritdoc />
-        public override ICommand DeleteRowsCommand
+        protected override void OnDeleteRows()
         {
-            get { return _deleteRowsCommand; }
+            IList<PersonViewModel> selectedPersons = Data.Where(model => model.IsSelected).ToList();
+            selectedPersons.ToList().ForEach(model => Data.Remove(model));
         }
     }
 }

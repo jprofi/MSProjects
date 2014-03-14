@@ -13,5 +13,6 @@
         
         <!--Custom control styles-->
         <ResourceDictionary Source="CustomControlStyles/DesktopTooltipStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="CustomControlStyles/TDataGridStyle.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

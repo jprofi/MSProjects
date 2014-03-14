@@ -153,14 +153,14 @@
                     {
                         case DataGridColumnAlignment.Right:
                         {
-                            alignmentStyle = WpfHelper.GetDependencyPropertyValue(dataGrid, StandardDataGrid.CellRightAlignStyleProperty) as Style;
+                            alignmentStyle = WpfHelper.GetDependencyPropertyValue(dataGrid, TDataGrid.CellRightAlignStyleProperty) as Style;
                         }
 
                         break;
 
                         case DataGridColumnAlignment.Center:
                         {
-                            alignmentStyle = WpfHelper.GetDependencyPropertyValue(dataGrid, StandardDataGrid.CellCenterAlignStyleProperty) as Style;
+                            alignmentStyle = WpfHelper.GetDependencyPropertyValue(dataGrid, TDataGrid.CellCenterAlignStyleProperty) as Style;
                         }
 
                         break;
