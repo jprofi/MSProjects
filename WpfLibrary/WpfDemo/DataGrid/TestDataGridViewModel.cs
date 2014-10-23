@@ -24,11 +24,14 @@
 
             AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<PersonViewModel>("LastName", model => model.LastName, DataGridColumnType.Text, DataGridColumnAlignment.Left, true, false, true));
             AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<PersonViewModel>("FirstName", model => model.FirstName, DataGridColumnType.Text, DataGridColumnAlignment.Center, true, false, true));
-            AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<PersonViewModel>("Age", model => model.Age, DataGridColumnType.Text, DataGridColumnAlignment.Right, true, false, true));
+            AddColumnDescription(DataGridColumnDescriptor.CreateNewInstance<PersonViewModel>("Age", model => model.Age, DataGridColumnType.Text, DataGridColumnAlignment.Right, false, true, true));
 
-            Data.Add(new PersonViewModel("Bühler", "Thomas", 45));
-            Data.Add(new PersonViewModel("Bühler", "Ralf", 42));
-            Data.Add(new PersonViewModel("Bühler", "Reto", 39));
+            for (int i = 0; i < 10000; i++)
+            {
+                Data.Add(new PersonViewModel("Bühler", "Thomas", 45));
+                Data.Add(new PersonViewModel("Bühler", "Ralf", 42));
+                Data.Add(new PersonViewModel("Bühler", "Reto", 39));                
+            }
         }
 
         /// <inheritdoc />

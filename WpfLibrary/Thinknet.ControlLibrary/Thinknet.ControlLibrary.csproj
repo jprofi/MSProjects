@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\Windows\System.Windows.Interactivity.dll</HintPath>
@@ -107,6 +108,9 @@
       <DependentUpon>StandardDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TDataGrid.cs" />
+    <Compile Include="Native\BitmapHandle.cs" />
+    <Compile Include="Native\GhostCursor.cs" />
+    <Compile Include="Native\IconHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -143,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="Images\" />
     <Folder Include="ResourceDictionaries\BaseControlStyles\" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +154,15 @@
       <Project>{6C359D2E-2A8C-4D78-A8BE-3BE92BBCE3DF}</Project>
       <Name>Thinknet.MVVM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cursor-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MoveCursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cursor-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
