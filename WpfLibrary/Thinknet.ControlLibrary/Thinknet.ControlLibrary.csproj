@@ -156,12 +156,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\cursor-24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MoveCursor.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\cursor-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
