@@ -34,11 +34,11 @@
                     double scaleY = double.Parse(TxtScaleY.Text);
                     double opacity = double.Parse(TxtOpacity.Text);
 
-                    cursor = new GhostCursor((Visual)sender, scaleX, scaleY, opacity);
+                    cursor = new GhostCursor((Visual)sender, scaleX, scaleY, opacity, CursorViewBox);
                 }
                 catch (Exception exception)
                 {
-                    cursor = new GhostCursor((Visual)sender);
+                    cursor = new GhostCursor((Visual)sender, CursorViewBox);
                 }
 
 

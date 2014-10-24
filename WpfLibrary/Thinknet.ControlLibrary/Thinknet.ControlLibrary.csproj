@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="Controls\TDataGrid.cs" />
     <Compile Include="Native\BitmapHandle.cs" />
+    <Compile Include="Native\CursorGenerator.cs" />
     <Compile Include="Native\GhostCursor.cs" />
     <Compile Include="Native\IconHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
