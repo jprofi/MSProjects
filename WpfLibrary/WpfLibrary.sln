@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinknet.MVVM", "Thinknet.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinknet.MVVM.Test", "Thinknet.MVVM.Test\Thinknet.MVVM.Test.csproj", "{D49E20D8-A707-409A-ACA4-AC81B3E730A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinknet.Core", "Thinknet.Core\Thinknet.Core.csproj", "{7EDA9AF2-FFC9-433A-8EBC-044FC9A6235F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D49E20D8-A707-409A-ACA4-AC81B3E730A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D49E20D8-A707-409A-ACA4-AC81B3E730A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D49E20D8-A707-409A-ACA4-AC81B3E730A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EDA9AF2-FFC9-433A-8EBC-044FC9A6235F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EDA9AF2-FFC9-433A-8EBC-044FC9A6235F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EDA9AF2-FFC9-433A-8EBC-044FC9A6235F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EDA9AF2-FFC9-433A-8EBC-044FC9A6235F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

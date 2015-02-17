@@ -3,7 +3,7 @@
     using System;
     using System.Linq.Expressions;
 
-    using Thinknet.MVVM.Helper;
+    using Thinknet.Core;
 
     /// <summary>
     /// Description for a single data grid column.

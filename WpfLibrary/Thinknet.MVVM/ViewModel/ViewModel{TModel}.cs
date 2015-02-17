@@ -5,12 +5,8 @@
     using System.ComponentModel;
     using System.Linq.Expressions;
     using System.Runtime.CompilerServices;
-    using System.Windows;
-    using System.Windows.Input;
-    using System.Windows.Threading;
 
-    using Thinknet.MVVM.Helper;
-    using Thinknet.MVVM.Messaging;
+    using Thinknet.MVVM.Binding;
 
     /// <summary>
     /// This class serves as abstract base class for all ViewModels.
@@ -18,37 +14,10 @@
     /// <typeparam name="TModel">
     /// type of the model
     /// </typeparam>
-    public abstract class ViewModel<TModel> : IDataErrorInfo, INotifyPropertyChanged
+    public abstract class ViewModel<TModel> : BindingBase, IDataErrorInfo, INotifyPropertyChanged
     {
-        private readonly Dispatcher _dispatcher;
         private readonly Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
         private TModel _model;
-        private IMessenger _messengerInstance;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ViewModel"/> class. 
-        /// Constructor
-        /// </summary>
-        protected ViewModel()
-        {
-            // Check whether application object is available (e.g. in console applications, 
-            // unit tests there is no application object available)
-            if (Application.Current != null)
-            {
-                // Get existing dispatcher
-                _dispatcher = Application.Current.Dispatcher;
-            }
-            else
-            {
-                // Create new dispatcher and store reference
-                _dispatcher = Dispatcher.CurrentDispatcher;
-            }
-        }
-
-        /// <summary>
-        /// Event occurs when a property value changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets an error message indicating what is wrong with this object.
@@ -85,24 +54,6 @@
         }
 
         /// <summary>
-        /// Gets or sets an instance of a <see cref="IMessenger" /> used to
-        /// broadcast messages to other objects. If null, this class will
-        /// attempt to broadcast using the Messenger's default instance.
-        /// </summary>
-        protected IMessenger MessengerInstance
-        {
-            get
-            {
-                return _messengerInstance ?? Messenger.Default;
-            }
-
-            set
-            {
-                _messengerInstance = value;
-            }
-        }
-
-        /// <summary>
         /// Gets the error message for the property with the given name.
         /// </summary>
         /// <param name="propertyName">The name of a property.</param>
@@ -112,84 +63,6 @@
             get
             {
                 return !_errors.ContainsKey(propertyName) ? null : string.Join(Environment.NewLine, _errors[propertyName]);
-            }
-        }
-
-        /// <summary>
-        /// Determine name of a property function.
-        /// </summary>
-        /// <typeparam name="T">The type</typeparam>
-        /// <param name="property">
-        /// The property function to get the name from.
-        /// </param>
-        /// <returns>
-        /// The name of the property function.
-        /// </returns>
-        public static string GetPropertyName<T>(Expression<Func<T>> property)
-        {
-            return ReflectionHelper.GetPropertyName(property);
-        }
-
-        /// <summary>
-        /// Gets the name of a property of a specific model.
-        /// </summary>
-        /// <typeparam name="TModel">The model type containing the property.</typeparam>
-        /// <typeparam name="TProperty">The property type</typeparam>
-        /// <param name="property">The property</param>
-        /// <returns>The name of the property.</returns>
-        public static string GetPropertyName<TModel, TProperty>(Expression<Func<TModel, TProperty>> property)
-        {
-            MemberExpression expression = (MemberExpression)property.Body;
-            string propertyName = expression.Member.Name;
-            return propertyName;
-        }
-
-        /// <summary>
-        /// Notifies that all properties have changed and have to be updated in UI.
-        /// Used for e.g. Language changes on viemodel level.
-        /// </summary>
-        protected void NotifyAllPropertyChanged()
-        {
-            NotifyPropertyChangedInternal(string.Empty);
-        }
-
-        /// <summary>
-        /// Inform all registered event handlers that a property has changed.
-        /// </summary>
-        /// <typeparam name="T">The type</typeparam>
-        /// <param name="changedProperty">
-        /// The property which has changed.
-        /// </param>
-        protected void NotifyPropertyChanged<T>(Expression<Func<T>> changedProperty)
-        {
-            string propertyName = GetPropertyName(changedProperty);
-            NotifyPropertyChangedInternal(propertyName);
-        }
-
-        /// <summary>
-        /// Raises a property change event without passing the callers method or property name.
-        ///     Property name is automatically replaced by the compiler.
-        /// </summary>
-        /// <param name="propertyName">Holds the compiler generated name of the calling property or method.</param>
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            NotifyPropertyChangedInternal(propertyName);
-        }
-
-        /// <summary>
-        /// Inform all registered event handlers that a property has changed.
-        /// </summary>
-        /// <param name="propertyName">
-        /// The name of the property which has been changed.
-        /// </param>
-        private void NotifyPropertyChangedInternal(string propertyName)
-        {
-            // Check whether there are any event handlers registered
-            PropertyChangedEventHandler eventHandlers = PropertyChanged;
-            if (eventHandlers != null)
-            {
-                // Raise event
-                eventHandlers(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
@@ -292,52 +165,63 @@
         }
 
         /// <summary>
-        /// Run a given action in UI thread with normal priority if neccessary.
+        /// Checks if a property already matches a desired value.  Sets the property and
+        /// notifies listeners only when necessary.
         /// </summary>
-        /// <param name="action">
-        /// The action to run in UI thread
-        /// </param>
-        public void RunInUiThread(Action action)
+        /// <typeparam name="T">Type of the property.</typeparam>
+        /// <param name="storage">Reference to a property with both getter and setter.</param>
+        /// <param name="value">Desired value for the property.</param>
+        /// <param name="propertyName">Name of the property used to notify listeners.  This
+        /// value is optional and can be provided automatically when invoked from compilers that
+        /// support CallerMemberName.</param>
+        /// <returns>True if the value was changed, false if the existing value matched the
+        /// desired value.</returns>
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
-            RunInUiThread(DispatcherPriority.Normal, action);
+            // ReSharper disable once ExplicitCallerInfoArgument
+            return SetProperty(ref storage, value, v => true, propertyName);
         }
 
         /// <summary>
-        /// Run a given action in UI thread with normal priority, always insert at the end of dispatcher queue.
+        /// Checks if a property already matches a desired value.  Sets the property and
+        /// notifies listeners only when necessary. If typeparam T is a string, it additionally trims the string.
         /// </summary>
-        /// <param name="action">The action to be run.</param>
-        protected void RunInUiThreadBeginInvoke(Action action)
+        /// <typeparam name="T">
+        /// Type of the property.
+        /// </typeparam>
+        /// <param name="storage">
+        /// Reference to a property with both getter and setter.
+        /// </param>
+        /// <param name="value">
+        /// Desired value for the property.
+        /// </param>
+        /// <param name="validateAction">
+        /// An action to validate the value.
+        /// </param>
+        /// <param name="propertyName">
+        /// Name of the property used to notify listeners.  This
+        /// value is optional and can be provided automatically when invoked from compilers that
+        /// support CallerMemberName.
+        /// </param>
+        /// <returns>
+        /// True if the value was changed, false if the existing value matched the
+        /// desired value.
+        /// </returns>
+        protected bool SetProperty<T>(ref T storage, T value, Func<T, bool> validateAction, [CallerMemberName] string propertyName = null)
         {
-            _dispatcher.BeginInvoke(action);
-        }
 
-        /// <summary>
-        /// Run a given action in UI thread with a given thread priority.
-        /// </summary>
-        /// <param name="threadPriority">
-        /// The thread priority to run the action with.
-        /// </param>
-        /// <param name="action">
-        /// The action to run in UI thread
-        /// </param>
-        protected void RunInUiThread(DispatcherPriority threadPriority, Action action)
-        {
-            if (_dispatcher.CheckAccess())
+            if (Equals(storage, value))
             {
-                action();
+                return false;
             }
-            else
-            {
-                _dispatcher.BeginInvoke(action);
-            }
-        }
 
-        /// <summary>
-        /// Forces all binded commands to update the can execute state.
-        /// </summary>
-        protected void NotifyCommandExecutionStatesChanged()
-        {
-            RunInUiThread(CommandManager.InvalidateRequerySuggested);
+            validateAction(value);
+
+            storage = value;
+
+            // ReSharper disable once ExplicitCallerInfoArgument
+            NotifyPropertyChanged(propertyName);
+            return true;
         }
 
         /// <summary>

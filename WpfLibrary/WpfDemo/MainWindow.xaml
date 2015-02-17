@@ -7,6 +7,7 @@
         xmlns:tooltip="clr-namespace:WpfDemo.Tooltip"
         xmlns:controls="clr-namespace:Thinknet.ControlLibrary.Controls;assembly=Thinknet.ControlLibrary"
         xmlns:dataGrid="clr-namespace:WpfDemo.DataGrid"
+        xmlns:command="clr-namespace:WpfDemo.Command"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
 
@@ -57,6 +58,9 @@
                     </StackPanel>
                     
                 </StackPanel>
+            </TabItem>
+            <TabItem Header="TaskCommand">
+                <command:CommandPanel></command:CommandPanel>   
             </TabItem>
         </TabControl>
 

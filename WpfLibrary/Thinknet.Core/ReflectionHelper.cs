@@ -1,4 +1,4 @@
-﻿namespace Thinknet.MVVM.Helper
+﻿namespace Thinknet.Core
 {
     using System;
     using System.Collections.Generic;

@@ -1,11 +1,17 @@
-﻿namespace Thinknet.MVVM.Helper
+﻿namespace Thinknet.Core
 {
     using System;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
 
-    public static partial class Reflect
+    /// <summary>
+    /// Provides strong-typed <see langword="static"/> reflection of the <typeparamref name="TTarget"/>.
+    /// </summary>
+    /// <typeparam name="TTarget">
+    /// Type to reflect.
+    /// </typeparam>
+    public static partial class Reflect<TTarget>
     {
         /// <summary>
         /// Gets the field represented by the lambda expression.
@@ -13,19 +19,19 @@
         /// <param name="field">
         /// An expression that accesses a field.
         /// </param>
+        /// <typeparam name="TResult">
+        /// The result type of the field.
+        /// </typeparam>
         /// <exception cref="ArgumentNullException">
         /// The <paramref name="field"/> is null.
         /// </exception>
         /// <exception cref="ArgumentException">
         /// The <paramref name="field"/> is not a lambda expression or it does not represent a field access.
         /// </exception>
-        /// <typeparam name="TResult">
-        /// The result type of the field.
-        /// </typeparam>
         /// <returns>
         /// The field info.
         /// </returns>
-        public static FieldInfo GetField<TResult>(Expression<Func<TResult>> field)
+        public static FieldInfo GetField<TResult>(Expression<Func<TTarget, TResult>> field)
         {
             FieldInfo info = GetMemberInfo(field) as FieldInfo;
             if (info == null)
@@ -51,7 +57,7 @@
         /// <returns>
         /// The method info.
         /// </returns>
-        public static MethodInfo GetMethod(Expression<Action> method)
+        public static MethodInfo GetMethod(Expression<Action<TTarget>> method)
         {
             return GetMethodInfo(method);
         }
@@ -63,7 +69,7 @@
         /// An expression that invokes a method.
         /// </param>
         /// <param name="args">
-        /// The passed arguments a method.
+        /// An array of parameters of the method.
         /// </param>
         /// <exception cref="ArgumentNullException">
         /// The <paramref name="method"/> is null.
@@ -74,7 +80,7 @@
         /// <returns>
         /// The method info.
         /// </returns>
-        public static MethodInfo GetMethod(Expression<Action> method, out object[] args)
+        public static MethodInfo GetMethod(Expression<Action<TTarget>> method, out object[] args)
         {
             return GetMethodInfo(method, out args);
         }
@@ -85,19 +91,19 @@
         /// <param name="method">
         /// An expression that invokes a method.
         /// </param>
+        /// <typeparam name="TResult">
+        /// The result type of the field.
+        /// </typeparam>
         /// <exception cref="ArgumentNullException">
         /// The <paramref name="method"/> is null.
         /// </exception>
         /// <exception cref="ArgumentException">
         /// The <paramref name="method"/> is not a lambda expression or it does not represent a method invocation.
         /// </exception>
-        /// <typeparam name="TResult">
-        /// The result type of the method.
-        /// </typeparam>
         /// <returns>
         /// The method info.
         /// </returns>
-        public static MethodInfo GetMethod<TResult>(Expression<Func<TResult>> method)
+        public static MethodInfo GetMethod<TResult>(Expression<Func<TTarget, TResult>> method)
         {
             return GetMethodInfo(method);
         }
@@ -108,6 +114,9 @@
         /// <param name="method">
         /// An expression that invokes a method.
         /// </param>
+        /// <typeparam name="TResult">
+        /// The result type of the field.
+        /// </typeparam>
         /// <exception cref="ArgumentNullException">
         /// The <paramref name="method"/> is null.
         /// </exception>
@@ -117,7 +126,7 @@
         /// <returns>
         /// The method info.
         /// </returns>
-        public static MethodInfo GetMethod(Expression<Func<Action>> method)
+        public static MethodInfo GetMethod<TResult>(Expression<Func<TTarget, Func<TResult>>> method)
         {
             return GetDelegateMethodInfo(method);
         }
@@ -125,9 +134,6 @@
         /// <summary>
         /// Gets the method represented by the lambda expression.
         /// </summary>
-        /// <typeparam name="TResult">
-        /// The result type of the method.
-        /// </typeparam>
         /// <param name="method">
         /// An expression that invokes a method.
         /// </param>
@@ -140,23 +146,9 @@
         /// <returns>
         /// The method info.
         /// </returns>
-        public static MethodInfo GetMethod<TResult>(Expression<Func<Func<TResult>>> method)
+        public static MethodInfo GetMethod(Expression<Func<TTarget, Action>> method)
         {
             return GetDelegateMethodInfo(method);
-        }
-
-        /// <summary>
-        /// The get parameter.
-        /// </summary>
-        /// <param name="reference">
-        /// The reference.
-        /// </param>
-        /// <returns>
-        /// The <see cref="MemberInfo"/>.
-        /// </returns>
-        public static MemberInfo GetParameter(Expression reference)
-        {
-            return GetMemberInfo(reference as LambdaExpression);
         }
 
         /// <summary>
@@ -177,7 +169,7 @@
         /// <returns>
         /// The property info.
         /// </returns>
-        public static PropertyInfo GetProperty<TResult>(Expression<Func<TResult>> property)
+        public static PropertyInfo GetProperty<TResult>(Expression<Func<TTarget, TResult>> property)
         {
             PropertyInfo info = GetMemberInfo(property) as PropertyInfo;
             if (info == null)
@@ -234,9 +226,21 @@
 
         private static MemberInfo GetMemberInfo(LambdaExpression lambda)
         {
-            if (lambda.Body.NodeType == ExpressionType.MemberAccess)
+            MemberExpression memberExpr = null;
+
+            if (lambda.Body.NodeType == ExpressionType.Convert)
             {
-                return ((MemberExpression)lambda.Body).Member;
+                memberExpr =
+                    ((UnaryExpression)lambda.Body).Operand as MemberExpression;
+            }
+            else if (lambda.Body.NodeType == ExpressionType.MemberAccess)
+            {
+                memberExpr = lambda.Body as MemberExpression;
+            }
+
+            if (memberExpr != null)
+            {
+                return memberExpr.Member;
             }
 
             throw new ArgumentException("Not a member access", "lambda");

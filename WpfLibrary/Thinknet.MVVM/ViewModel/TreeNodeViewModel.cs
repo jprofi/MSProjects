@@ -3,8 +3,6 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    using Thinknet.MVVM.Messaging;
-
     /// <summary>
     /// This class serves as abstract base class for all tree node ViewModels.
     /// </summary>
@@ -33,15 +31,7 @@
 
             set
             {
-                // Check whether value has changed
-                if (value != _expanded)
-                {
-                    // Store value
-                    _expanded = value;
-
-                    // Notify about property change
-                    NotifyPropertyChanged(() => Expanded);
-                }
+                SetProperty(ref _expanded, value);
             }
         }
 
@@ -54,16 +44,7 @@
 
             set
             {
-                // Check whether value has changed
-                if (value != _selected)
-                {
-                    // Store value
-                    _selected = value;
-
-                    // Notify about property change
-                    NotifyPropertyChanged(() => Selected);
-                    MessengerInstance.Send(new TreeSelectionChangedMessage(this, _selected));
-                }
+                SetProperty(ref _selected, value);
             }
         }
     }

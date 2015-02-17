@@ -15,6 +15,9 @@
     {
         private bool _showSpecCursor;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +39,7 @@
 
                     cursor = new GhostCursor((Visual)sender, scaleX, scaleY, opacity, CursorViewBox);
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
                     cursor = new GhostCursor((Visual)sender, CursorViewBox);
                 }

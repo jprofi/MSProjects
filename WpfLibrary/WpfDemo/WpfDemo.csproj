@@ -58,9 +58,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\CommandPanel.xaml.cs" />
+    <Compile Include="Command\CommandViewModel.cs" />
     <Compile Include="DataGrid\PersonViewModel.cs" />
     <Compile Include="DataGrid\TestDataGridViewModel.cs" />
     <Compile Include="Tooltip\TooltipViewModel.cs" />
+    <Page Include="Command\CommandPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

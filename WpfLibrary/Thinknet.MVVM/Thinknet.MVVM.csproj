@@ -52,18 +52,29 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binding\BindingBase.cs" />
     <Compile Include="Command\AsyncRelayCommand.cs" />
     <Compile Include="Command\AsyncRelayCommand{T}.cs" />
     <Compile Include="Command\BaseCommand.cs" />
+    <Compile Include="Command\CancelTaskRelayCommand.cs" />
+    <Compile Include="Command\CommandManagerWrapper.cs" />
+    <Compile Include="Command\ICancelTaskRelayCommand.cs" />
+    <Compile Include="Command\ICommandManager.cs" />
+    <Compile Include="Command\INotifyTaskCompletion.cs" />
+    <Compile Include="Command\INotifyTaskCompletion{T}.cs" />
+    <Compile Include="Command\ITaskRelayCommand.cs" />
+    <Compile Include="Command\ITaskRelayCommandBase.cs" />
+    <Compile Include="Command\ITaskRelayCommand{TResult}.cs" />
+    <Compile Include="Command\NotifyTaskCompletion.cs" />
+    <Compile Include="Command\NotifyTaskCompletion{T}.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Command\RelayCommand{T}.cs" />
+    <Compile Include="Command\TaskRelayCommand.cs" />
+    <Compile Include="Command\TaskRelayCommandBase.cs" />
+    <Compile Include="Command\TaskRelayCommand{T}.cs" />
     <Compile Include="Helper\IExecuteWithObject.cs" />
     <Compile Include="Helper\IExecuteWithObjectAndResult.cs" />
     <Compile Include="Helper\ObservableCollectionChangedHandler.cs" />
-    <Compile Include="Helper\Reflect.cs" />
-    <Compile Include="Helper\Reflect.generated.cs" />
-    <Compile Include="Helper\ReflectionHelper.cs" />
-    <Compile Include="Helper\Reflect{TTarget}.cs" />
     <Compile Include="Helper\WeakAction.cs" />
     <Compile Include="Helper\WeakAction{T}.cs" />
     <Compile Include="Helper\WeakFunc{T,TResult}.cs" />
@@ -109,7 +120,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Thinknet.Core\Thinknet.Core.csproj">
+      <Project>{7eda9af2-ffc9-433a-8ebc-044fc9a6235f}</Project>
+      <Name>Thinknet.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
